@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SignIn from './component/SignIn';
+import DesignStudio from './pages/DesignStudio';
+
 
 function App() {
+
+  // const [isAuth,setIsAuth]=useState()
+
+  // const handleAuth=(token)=>{
+  //   setIsAuth(token)
+  //   console.log("token is",token);
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+     {/* { isAuth ?
+      <h1> login sucessFull</h1>:
+      <SignIn handleAuth={handleAuth}/>  
+     
+    } */}
+    <DesignStudio/>
+     </div>
   );
 }
 
