@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SignIn from './component/SignIn';
 import DesignStudio from './pages/DesignStudio';
 
 
 function App() {
 
-  // const [isAuth,setIsAuth]=useState()
+  const [isAuth,setIsAuth]=useState()
 
-  // const handleAuth=(token)=>{
-  //   setIsAuth(token)
-  //   console.log("token is",token);
-  // }
+  useEffect(()=>{
+    const token=localStorage.getItem("token");
+    setIsAuth(token)
+  },[])
+  const handleAuth=(token)=>{
+    // setIsAuth(token)
+    console.log("hi");
+  }
 
   return (
     <div>
-     {/* { isAuth ?
-      <h1> login sucessFull</h1>:
-      <SignIn handleAuth={handleAuth}/>  
-     
-    } */}
-    <DesignStudio/>
+     { isAuth ?
+      <DesignStudio/>:
+      <SignIn handleAuth={handleAuth}/> 
+    }
+    
      </div>
   );
 }

@@ -7,7 +7,7 @@ const ManageProduct = () => {
             sx={{
               backgroundColor: "#27272f",
               color: "#fff",
-              width: "400px",
+              width: "460px",
               height: "495px",
               m: 2,
               ml: 0,

@@ -5,6 +5,7 @@ const SignIn=({handleAuth})=>{
 
   const [token, setToken] = useState();
   const [user, setUser] = useState();
+  
 
   const fetchUserInfo=(token)=>{
     
@@ -14,8 +15,9 @@ const SignIn=({handleAuth})=>{
       }
     })
       .then(response => response.json())
-      .then(data => {console.log(data);setUser(data);handleAuth(data) })
+      .then(data => {console.log(data);setUser(data);handleAuth(data);window.location.reload(); })
       .catch(error => console.error('Error:', error));
+
   };
   
   
@@ -42,6 +44,7 @@ const SignIn=({handleAuth})=>{
     onSuccess: tokenResponse => {
       console.log(tokenResponse);
       setToken(tokenResponse.access_token);
+      localStorage.setItem("token",tokenResponse.access_token);
       fetchUserInfo(tokenResponse.access_token)
     },
     scope: "https://www.googleapis.com/auth/youtube.readonly" 

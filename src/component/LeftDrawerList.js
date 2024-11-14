@@ -16,7 +16,7 @@ const itemList = [
   { id: 5, name: "Playlist Manager", subName: "Product playlist" ,img:"./icons/img.png" },
   { id: 6, name: "One Click Post",img:"./icons/click.png"  },
   { id: 7, name: "Calender",img:"./icons/calender.png" },
-  { id: 7, name: "Hire Influencer",img:"./icons/hire.png" },
+  { id: 8, name: "Hire Influencer",img:"./icons/hire.png" },
 ];
 
 export default function LeftDrawerList() {
