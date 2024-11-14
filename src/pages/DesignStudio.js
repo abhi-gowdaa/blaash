@@ -1,9 +1,20 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import LeftDrawer from "./LeftDrawer";
+import Header from "./Header";
+import PlayList from "./PlayList";
 
 const DesignStudio = () => {
   return (
-    <div>DesignStudio</div>
-  )
-}
+    <Box sx={{display: "flex",gap: 1,m: "auto",color: "#fff",}}>
+      
+      <LeftDrawer />
 
-export default DesignStudio
+      <div style={{ width: "100%", rowGap: 1}} >
+        <Header />
+        <PlayList />
+      </div>
+    </Box>
+  );
+};
+
+export default DesignStudio;
