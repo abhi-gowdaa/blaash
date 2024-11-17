@@ -1,9 +1,18 @@
 import { Button, Card, Typography, Box } from "@mui/material";
 import "../globalStyles/styles.css";
 import SearchComponent from "../component/SearchBar";
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import { useEffect,useState } from "react";
+import Profile from "../component/Profile";
 
 const Header = () => {
+  const [user,setUser]=useState([])
+  useEffect(()=>{
+    const userData=JSON.parse(localStorage.getItem("user")) 
+    setUser(userData)
+    console.log(userData['picture']);
+  },[])
   return (
     <Card
       sx={{
@@ -61,16 +70,30 @@ const Header = () => {
           </Typography>
         </Button>
 
-        <SearchComponent />
+        <SearchComponent placeholder={"Search Project..."}>
+        <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+        <Card
+          sx={{
+            height: "26px",
+            width: "26px",
+            borderRadius: "10px",
+            bgcolor: "transparent",
+            border: "2px solid #484851",
+          }}
+        >
+          <SearchIcon sx={{ color: "#fff" }} />
+        </Card>
+      </IconButton>
+        </SearchComponent>
 
         <img className="notifi" src="./btnIcons/notifi.png" alt="notifi" />
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <img className="notifi" src="./btnIcons/notifi.png" alt="notifi" />
+          <img className="profilePhoto" src={user['picture']} alt="profile" />
           <Typography>
-            abhishek...
+            {(user['name'])?.slice(0,8)}...
           </Typography>
-          <ExpandMore />
+         {user && <Profile/>}
         </Box>
       </Box>
     </Card>

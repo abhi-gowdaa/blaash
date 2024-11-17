@@ -27,3 +27,19 @@
     width: 250px;
 
 }
+
+.profilePhoto{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.container {
+    overflow-x: auto; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+  }
+  
+  .container::-webkit-scrollbar {
+    display: none; 
+  }
